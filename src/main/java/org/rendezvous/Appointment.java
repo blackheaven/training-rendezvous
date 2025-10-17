@@ -25,7 +25,7 @@ public class Appointment {
         );
         return
             this.day == otherAppointment.day
-                && busyRange.includes(otherAppointment.daytime)
-                && busyRange.includes(otherAppointment.daytime.add(otherAppointment.type.getDuration()).get());
+                && (busyRange.includes(otherAppointment.daytime)
+                || busyRange.includes(otherAppointment.daytime.add(otherAppointment.type.getDuration()).get()));
     }
 }
